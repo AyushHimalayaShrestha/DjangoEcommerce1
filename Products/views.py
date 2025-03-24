@@ -1,0 +1,9 @@
+from django.shortcuts import render
+from django.http import HttpResponse
+
+# Create your views here.
+def index(request):
+    return HttpResponse('This is from the product app.')
+
+def home(request):
+    return HttpResponse('Hello World!')
