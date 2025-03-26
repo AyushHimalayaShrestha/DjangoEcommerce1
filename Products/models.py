@@ -8,6 +8,13 @@ class Category(models.Model):
 
     def __str__(self):
         return self.category_name
+    
+class Brand(models.Model):
+    brand_name =models.CharField(max_length=115, unique=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.brand_name
 
 class Product(models.Model):
     product_name = models.CharField(max_length=115)
@@ -17,6 +24,7 @@ class Product(models.Model):
     product_description = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
     category= models.ForeignKey(Category, on_delete=models.CASCADE, null=True)
+    brand = models.ForeignKey(Brand, on_delete=models.CASCADE, null=True)
 
     def __str__(self):
         return self.product_name
