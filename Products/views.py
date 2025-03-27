@@ -7,5 +7,5 @@ def index(request):
     context ={
         'products':products
     }
-    return render(request,'showproduct.html',context)
+    return render(request,'products/showproduct.html',context)
 
