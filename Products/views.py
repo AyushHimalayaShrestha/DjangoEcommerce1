@@ -9,3 +9,9 @@ def index(request):
     }
     return render(request,'products/showproduct.html',context)
 
+def show_category(request):
+    category =Category.objects.all()
+    context = {
+        'category' :category
+    }
+    return render(request, 'products/showcategory.html',context)

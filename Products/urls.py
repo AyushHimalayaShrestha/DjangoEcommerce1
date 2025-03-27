@@ -5,5 +5,6 @@ from .views import *
 
 urlpatterns =[
     path('list/', index ),
+    path('categorylist/',show_category)
    
 ]
