@@ -3,31 +3,39 @@
 <title>Product List</title>
 {% endblock %}
 {% block main_content %}
-    <table border="1">
-        <tr>
-            <th>Brand</th>
-            <th>Product Name</th>
-            <th>Product Price</th>
-            <th>Stock Quantity</th>
-            <th>Image</th>
-            <th>Description</th>
-            <th>Category</th>
-            <th>Action</th>
-        </tr>
-        {% for item in products %}
-        <tr>
-            <td>{{item.brand.brand_name}}</td>
-            <td>{{item.product_name}}</td>
-            <td>{{item.product_price}}</td>
-            <td>{{item.stock}}</td>
-            <td><img src="{{item.image_url}}" alt=""></td>
-            <td>{{item.product_description}}</td>
-            <td>{{item.category.category_name}}</td>
-            <td>
-                <a href="#">Edit</a>
-                <a href="#" onclick="return confirm('Are you sure want to delete this product?')">Delete</a>
-            </td>
-        </tr>
-        {% endfor %}
-    </table>
+<div class="container">
+    <div class="row d-flex justify-content-center">
+        <div class="col-md-12">
+
+
+            <table class="table table-bordered table-striped">
+                <tr>
+                    <th>Brand</th>
+                    <th>Product Name</th>
+                    <th>Product Price</th>
+                    <th>Stock Quantity</th>
+                    <th>Image</th>
+                    <th>Description</th>
+                    <th>Category</th>
+                    <th>Action</th>
+                </tr>
+                {% for item in products %}
+                <tr>
+                    <td>{{item.brand.brand_name}}</td>
+                    <td>{{item.product_name}}</td>
+                    <td>{{item.product_price}}</td>
+                    <td>{{item.stock}}</td>
+                    <td><img src="{{item.image_url}}" alt=""></td>
+                    <td>{{item.product_description}}</td>
+                    <td>{{item.category.category_name}}</td>
+                    <td>
+                        <a href="#" class="btn btn-primary"><i class="fa-solid fa-pen-to-square"></i></a>
+                        <a href="#" onclick="return confirm('Are you sure want to delete this product?')" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+</div>
 {% endblock %}

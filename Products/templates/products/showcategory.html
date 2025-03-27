@@ -3,20 +3,26 @@
 <title>Category List</title>
 {% endblock %}
 {% block main_content %}
-<table border="1">
-    <tr>
-        <th>Category Name</th>
-        <th>Action</th>
-    </tr>
-    {% for item in category %}
-    <tr>
-        <td>{{item.category_name}}</td>
-        <td><a href="#">Edit</a>
-            <a href="#" onclick="return confirm('Are you sure want to delete this category?')">Delete</a>
-        </td>
+<div class="container">
+    <div class="row d-flex justify-content-center">
+        <div class="col-md-5">
+            <table class="table table-bordered table-striped">
+                <tr>
+                    <th>Category Name</th>
+                    <th>Action</th>
+                </tr>
+                {% for item in category %}
+                <tr>
+                    <td>{{item.category_name}}</td>
+                    <td><a href="#"><i class="fa-solid fa-pen-to-square" class="btn btn-primary"></i></a>
+                        <a href="#" onclick="return confirm('Are you sure want to delete this category?')"
+                            class="btn btn-danger"><i class="fa-solid fa-trash"></i></a>
+                    </td>
 
-    </tr>
-    {% endfor %}
-</table>
-
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+</div>
 {% endblock %}
