@@ -2,6 +2,7 @@ from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from .models import Product, Category
 from django.contrib import messages
+from .forms import CategoryForm
 # Create your views here.
 
 # To Show Product
@@ -29,8 +30,15 @@ def delete_category(request,category_id):
 
 # To Delete Product
 def delete_product(request,product_id):
-    product = Product.objects.get(id = product_id)
+    product = Product.objects.get(id =product_id)
     product.delete()
     messages.add_message(request,messages.SUCCESS,'Product Deleted')
     return redirect('/Products/list')
 
+# To Post Category
+def post_category(request):
+
+    context ={
+        'forms': CategoryForm
+    }
+    return render(request,'Products/addcategory.html',context)
