@@ -6,6 +6,13 @@
 <div class="container">
     <div class="row d-flex justify-content-center">
         <div class="col-md-5">
+            {% for msg in messages %}
+            {% if msg.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+            <div class="alert alert-success">
+                {{msg}}
+            </div>
+            {% endif %}
+            {% endfor %}
             <table class="table table-bordered table-striped">
                 <tr>
                     <th>Category Name</th>
@@ -15,7 +22,7 @@
                 <tr>
                     <td>{{item.category_name}}</td>
                     <td><a href="#"><i class="fa-solid fa-pen-to-square" class="btn btn-primary"></i></a>
-                        <a href="#" onclick="return confirm('Are you sure want to delete this category?')"
+                        <a href="/Products/deletecategory/{{item.id}}" onclick="return confirm('Are you sure want to delete this category?')"
                             class="btn btn-danger"><i class="fa-solid fa-trash"></i></a>
                     </td>
 
