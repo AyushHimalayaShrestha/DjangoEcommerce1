@@ -12,7 +12,14 @@
                 {{msg}}
             </div>
             {% endif %}
+
+            {% if msg.level == DEFAULT_MESSAGE_LEVEL.ERROR %}
+            <div class="alert alert-danger">
+                {{msg}}
+            </div>
+            {% endif %}
             {% endfor %}
+
             <table class="table table-bordered table-striped">
                 <tr>
                     <th>Category Name</th>

@@ -37,7 +37,15 @@ def delete_product(request,product_id):
 
 # To Post Category
 def post_category(request):
-
+    if request.method == 'POST':
+        form = CategoryForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.add_message(request,messages.SUCCESS,'Category Added')
+            return redirect('/Products/postcategory')
+        else:
+            messages.add_message(request,messages.ERROR,'Please Verify Form Fields')
+            return render(request,'products/addcategory.html',{'forms':form})
     context ={
         'forms': CategoryForm
     }
