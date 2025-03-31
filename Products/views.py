@@ -2,7 +2,7 @@ from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from .models import Product, Category
 from django.contrib import messages
-from .forms import CategoryForm
+from .forms import CategoryForm,ProductForm
 # Create your views here.
 
 # To Show Product
