@@ -50,3 +50,19 @@ def post_category(request):
         'forms': CategoryForm
     }
     return render(request,'Products/addcategory.html',context)
+
+# To Post Product
+def post_product(request):
+    if request.method == 'POST':
+        form = ProductForm(request.POST,request.FILES)
+        if form.is_valid():
+            form.save()
+            messages.add_message(request,messages.SUCCESS,'Product Added')
+            return redirect('/Products/postproduct')
+        else:
+            messages.add_message(request,messages.ERROR,'Please Verify Form Fields')
+            return render(request,'products/addproduct.html',{'forms':form})
+    context ={
+        'forms': ProductForm
+    }
+    return render(request,'Products/addproduct.html',context)
