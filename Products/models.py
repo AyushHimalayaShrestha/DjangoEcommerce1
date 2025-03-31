@@ -20,7 +20,7 @@ class Product(models.Model):
     product_name = models.CharField(max_length=115)
     product_price = models.FloatField()
     stock = models.IntegerField()
-    product_image= models.FileField()
+    product_image= models.FileField(upload_to='static/uploads',null=True)
     product_description = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
     category= models.ForeignKey(Category, on_delete=models.CASCADE, null=True)
