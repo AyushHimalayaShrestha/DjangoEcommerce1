@@ -10,6 +10,7 @@ urlpatterns =[
     path('deleteproduct/<int:product_id>',delete_product),
     path('postcategory/',post_category),
     path('postproduct/',post_product),
-    path('updatecategory/<int:category_id>',update_category)
+    path('updatecategory/<int:category_id>',update_category),
+    path('updateproduct/<int:product_id>',update_product)
    
 ]
