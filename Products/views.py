@@ -66,3 +66,21 @@ def post_product(request):
         'forms': ProductForm
     }
     return render(request,'Products/addproduct.html',context)
+
+# To Update Category
+def update_category(request, category_id):
+    instance =Category.objects.get(id=category_id)
+    if request.method == 'POST':
+        form=CategoryForm(request.POST,instance=instance)
+        if form.is_valid():
+            form.save()
+            messages.add_message(request, messages.SUCCESS,'Category Updated')
+            return redirect('/Products/categorylist')
+        else:
+            messages.add_message(request,messages.ERROR,'Please verify form fields')
+            return render(request,'Products/updatecategory.html',{'forms':form})
+
+    context = {
+        'forms': CategoryForm(instance=instance)
+    }
+    return render(request,'Products/updatecategory.html',context)
